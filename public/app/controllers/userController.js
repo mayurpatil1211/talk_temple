@@ -4,3 +4,9 @@ angular.module('userController',[])
 	app.errorMsg = 'Account not found'
 
 }) 
+
+.controller('googleCtrl', function($routeParams, $location, $window){
+	var app=this;
+	app.errorMsg = 'Google Account not found'
+
+}) 

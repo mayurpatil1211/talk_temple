@@ -4,6 +4,8 @@ var User = require('../models').User;
 var jwt = require('jsonwebtoken');
 var session = require('express-session')
 var secrete = 'talk_temple'
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var LinkedInStrategy = require("passport-linkedin").Strategy 
 
 
 
@@ -21,7 +23,7 @@ module.exports = function(app,passport){
 
   passport.serializeUser(function(profile, done) {
     // console.log(profile[0]['dataValues'])
-    // // console.log(profile.displayName)
+    console.log(profile)
     user = profile[0]['dataValues']
     // user['first_name'] = profile.profile
   token = jwt.sign({
@@ -75,6 +77,71 @@ function(accessToken, refreshToken, profile, done){
   })
 }
 ));
+
+passport.use(new GoogleStrategy({
+    clientID: '540848014934-u8ik7t4212ip9ll6b4040sdlgje4259t.apps.googleusercontent.com',
+    clientSecret: 'hKgbSstHwBLlS_iYp-6_WlDE',
+    callbackURL: "http://localhost:8080/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log(profile)
+    User.findOrCreate(
+      {where:{email:profile.emails[0].value},
+      attributes: ['id','email', 'first_name']
+    }).then(function(user){
+      // console.log(user)
+      done(null, user)
+    }).catch(function(err){
+      done(err)
+    })
+    }
+));
+
+
+passport.use(new LinkedInStrategy({
+    consumerKey: '81ks0ulmdh2y03',
+    consumerSecret: 'Kse3wRzyiFIJzPje',
+    callbackURL: "http://localhost:8080/auth/linkedin/callback",
+    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
+  },
+  function(token, tokenSecret, profile, done) {
+      console.log(profile._json.emailAddress)
+      User.findOrCreate(
+        {where:{email:profile._json.emailAddress},
+        attributes: ['id','email', 'first_name']
+      }).then(function(user){
+        // console.log(user)
+        done(null, user)
+      }).catch(function(err){
+        done(err)
+      })
+  }
+));
+
+
+
+app.get('/auth/linkedin',
+  passport.authenticate('linkedin', { scope: ['r_basicprofile', 'r_emailaddress'] }));
+
+app.get('/auth/linkedin/callback', 
+  passport.authenticate('linkedin', { failureRedirect: '/googleerror' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    // res.redirect('/');
+    res.send({'token':token, 'user':user})
+  });
+
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'profile', 'email'] }));
+
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/googleerror' }),
+  function(req, res) {
+    res.send({'token':token, 'user':user})
+    // res.redirect('/google/'+token)
+  });
+
 
 app.get('/auth/facebook/callback', passport.authenticate('facebook',{failureRedirect:'/facebookerror'}),function(req, res){
   console.log("hi")
