@@ -51,7 +51,7 @@ module.exports = function(app,passport){
 passport.use(new FacebookStrategy({
     clientID: '219130758828657',
     clientSecret: 'cb53ed7e57e2801e81f57235e48cd386',
-    callbackURL: "http://localhost:8080/auth/facebook/callback",
+    callbackURL: "http://18.217.244.65:8080/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'photos', 'email']
   },
 
@@ -81,7 +81,7 @@ function(accessToken, refreshToken, profile, done){
 passport.use(new GoogleStrategy({
     clientID: '540848014934-u8ik7t4212ip9ll6b4040sdlgje4259t.apps.googleusercontent.com',
     clientSecret: 'hKgbSstHwBLlS_iYp-6_WlDE',
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "http://18.217.244.65:8080/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile)
@@ -101,7 +101,7 @@ passport.use(new GoogleStrategy({
 passport.use(new LinkedInStrategy({
     consumerKey: '81ks0ulmdh2y03',
     consumerSecret: 'Kse3wRzyiFIJzPje',
-    callbackURL: "http://localhost:8080/auth/linkedin/callback",
+    callbackURL: "http://18.217.244.65:8080/auth/linkedin/callback",
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
   },
   function(token, tokenSecret, profile, done) {
