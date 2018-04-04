@@ -4,24 +4,53 @@ var secrete = 'talk_temple_codematrix'
 
 module.exports={
 //--------------------------User Register--------------------------------
+
 	create(req, res){
 		if(req.body.email!='' && req.body.email!=null && req.body.password!='' && req.body.password!=null){
-			pass = User.generateHash(req.body.password)
-			console.log(pass)
 			return User
-			.create({
-				email : req.body.email,
-				password :pass,
-				first_name: req.body.first_name,
-				last_name: req.body.last_name
+			.findOne({where:{email:req.body.email},})
+			.then(user=>{
+				if(!user){
+					pass = User.generateHash(req.body.password)
+					return User
+					.create({
+						email: req.body.email,
+						password:pass,
+						first_name : req.body.first_name,
+						last_name: req.body.last_name
+					})
+					.then(user=>res.status(201).send({message:"User Created Successfully", message_code: 1000}))
+					.catch(error=>res.status(400).send({message:"Not able to create User, Please check credentials", message_code:1001}))
+				}else{
+					return res.status(400).send({message:"User with this email already exists", message_code: 1002})
+				}
 			})
-			.then(user=>res.status(201).send(user))
-			.catch(error=>res.status(400).send(error));
 		}else{
-			return res.status(400).send({message:"Null shall\'t pass"})
+			return res.status(400).send({message:"Null shall\'t pass, check the credentials you are sending", message_code:1003})
 		}
 		
 	},
+
+
+
+	// create(req, res){
+	// 	if(req.body.email!='' && req.body.email!=null && req.body.password!='' && req.body.password!=null){
+	// 		pass = User.generateHash(req.body.password)
+	// 		console.log(pass)
+	// 		return User
+	// 		.create({
+	// 			email : req.body.email,
+	// 			password :pass,
+	// 			first_name: req.body.first_name,
+	// 			last_name: req.body.last_name
+	// 		})
+	// 		.then(user=>res.status(201).send(user))
+	// 		.catch(error=>res.status(400).send({message:error.errors[0].message}));
+	// 	}else{
+	// 		return res.status(400).send({message:"Null shall\'t pass"})
+	// 	}
+		
+	// },
 //--------------------------Login--------------------------------
 	login(req, res){
 		if(req.body.email!='' && req.body.email!=null && req.body.password!='' && req.body.password!=null){
@@ -50,7 +79,7 @@ module.exports={
                 }
                 else{return res.status(400).send({message:"Invalid email or password"})}
                 }else{
-                        return res.status(400).send({message:"May be User has to login with social App"})
+                        return res.status(400).send({message:"May be User has to log in with social App"})
                 }
 
 				return res.status(400).send({message:"Invalid email or password"})
