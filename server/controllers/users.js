@@ -60,7 +60,7 @@ module.exports={
 			}).then(user=>{
 				if(!user){
 					return res.status(404).send({
-						message:'Invalid User Email'
+						message:'Invalid User Email', message_code: 1007
 					})
 				}
 				if(user.password){
@@ -74,18 +74,20 @@ module.exports={
                                 attributes: ['id', 'email', 'first_name', 'last_name']
                         }).then(user=>res.status(200).send({
                                 'user':user,
-                                'token':token
+                                'token':token,
+                                'message': "User Logged In Successfully",
+                                'message_code': 1005
                         }))
                 }
-                else{return res.status(400).send({message:"Invalid email or password"})}
+                else{return res.status(400).send({message:"Invalid email or password", message_code: 1007})}
                 }else{
-                        return res.status(400).send({message:"May be User has to log in with social App"})
+                        return res.status(400).send({message:"May be User has to log in with social App", message_code: 1006})
                 }
 
-				return res.status(400).send({message:"Invalid email or password"})
+				return res.status(400).send({message:"Invalid email or password", message_code: 1007})
 			})
 		}else{
-			return res.status(400).send({message:"Null shall\'t pass"})
+			return res.status(400).send({message:"Null shall\'t pass", message_code:1003})
 		}
 	},
 
@@ -107,15 +109,17 @@ module.exports={
                                 attributes: ['id', 'email']
                         }).then(user=>res.status(200).send({
                                 'user':user,
-                                'token':token
+                                'token':token,
+                                'message': "User Logged In Successfully",
+                                'message_code': 1005
                         }))
 					}
 				}).catch(function(err){
-					return res.status(400).send({message:err})
+					return res.status(400).send({message:"Not able to create User, Please check credentials", message_code:1001})
 				})
-			return res.status(400).send({message:"Invalid email or password"})
+			return res.status(400).send({message:"Invalid email or password", message_code: 1007})
 		}else{
-			return res.status(400).send({message:"Null shall\'t pass"})
+			return res.status(400).send({message:"Null shall\'t pass", message_code:1003})
 		}
 	}
 

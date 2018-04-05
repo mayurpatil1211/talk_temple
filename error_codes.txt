@@ -1,4 +1,6 @@
 Already Exists - 1002
 Created - 1000
 Not able to create - 1001
-missing keys - 1003
+missing keys(null) - 1003
+Invalid Credentials - 1007
+Invalid Login - 1006(login with social)
