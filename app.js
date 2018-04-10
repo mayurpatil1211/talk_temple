@@ -6,10 +6,14 @@ var path = require('path')
 const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 var passport = require('passport');
 var flash    = require('connect-flash');
 app.use(express.static(__dirname+'/public'))
+app.use(express.static(__dirname+'/uploads'))
+var multer  = require('multer')
+
+// app.use(multer.array());
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -26,18 +30,20 @@ app.use(allowCrossDomain);
 
 // const server = http.createServer(app);
 
-
 require('./server/config/passport')(app,passport);
 
 // Require our routes into the application.
 require('./server/routes')(app);
+
+require('./server/controllers/upload_files')(app);
 // app.get('*', (req, res) => res.status(200).send({
 //   message: 'Welcome to the beginning of nothingness.',
 // }));
 
 
 app.get('*', function(req, res){
-	res.sendFile(path.join(__dirname+ '/public/app/views/index.html'))
+	// res.sendFile(path.join(__dirname+ '/public/app/views/index.html'))
+	res.send({message:'Not Found'}).status(404)
 })
 
 

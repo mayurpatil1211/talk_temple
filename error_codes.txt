@@ -4,3 +4,21 @@ Not able to create - 1001
 missing keys(null) - 1003
 Invalid Credentials - 1007
 Invalid Login - 1006(login with social)
+
+
+file uploaded - 1101
+file not uploaded - 1102
+file size - 1103
+file type - 1104
+file not selected- 1105
+
+
+Adding Into Favorite
+Added to the Favorite - 1201
+Cannot add to the Fav - 1202
+cannot get lsit - 1203
+success get list - 1204
+
+removed song from Favorite - 1205
+Song cannot be removed from the Favorite - 1206
+Not able to Remove Song from The Favorite, Please try again - 1207

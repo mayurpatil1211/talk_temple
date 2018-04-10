@@ -16,6 +16,11 @@ angular.module('appRoutes',['ngRoute'])
 		controller: 'googleCtrl',
 		controllerAs:'google'
 	})
+	.when('/googleerror',{
+		templateUrl:'app/views/pages/users/login.html',
+		controller: 'linkedInCtrl',
+		controllerAs:'linkedIn'
+	})
 
 	.otherwise({redirectTo:'/facebookerror'});
 

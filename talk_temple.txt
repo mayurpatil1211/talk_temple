@@ -1,0 +1,164 @@
+1. Register User
+	API - http://18.217.244.65:8080/api/register
+	Method - POST
+	Request - 
+		{
+			"first_name":"admin",
+			"last_name": "admin",
+			"email": "admin@gmail.com",
+			"password":"admin@12345"
+		}
+	Response - 
+		{
+		    "status": true,
+		    "message": "User register successfully"
+		}
+#########################################################
+2. Login User
+	API - http://18.217.244.65:8080/api/login
+	Method - POST
+	Request - 
+		{
+			"email": "admin@gmail.com",
+			"password":"admin@12345"
+		}
+	Response - 
+		{
+		    "status": true,
+		    "message": "successfully Authenticated user",
+		    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heXVyLnBhdGlsMTIxMUBnbWFpbC5jb20iLCJpYXQiOjE1MjIxNTI5MDQsImV4cCI6MTUyMjIzOTMwNH0.3RPIgUjc99WF-zUiis1kZhEIAsv7bA7qwM59JVLmzmY",
+		    "user": {
+		        "first_name": "mayur",
+		        "last_name": "Patil",
+		        "email": "mayur.patil1211@gmail.com"
+		    }
+		}
+##########################################################
+3. Login with facebook(Web)
+	API - http://18.217.244.65:8080/auth/facebook
+	Method - GET
+	Response - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MjI0ODQ0NzMsImV4cCI6MTUyMjU3MDg3M30.Yx5jXcXEb5fmXKl02WyHLaq4ARTQKY0l9lEBbFG7vlw","user":{"id":2,"email":"mayur.patil1211@gmail.com","first_name":null}}
+########################################################
+4.Login with Linked In(Web)
+	API - http://18.217.244.65:8080/auth/linkedin
+	Method-GET
+	Response - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MjI0ODQ0NzMsImV4cCI6MTUyMjU3MDg3M30.Yx5jXcXEb5fmXKl02WyHLaq4ARTQKY0l9lEBbFG7vlw","user":{"id":2,"email":"mayur.patil1211@gmail.com","first_name":null}}
+########################################################
+5.Login with Google(web)
+	API - http://18.217.244.65:8080/auth/google
+	Method-GET
+	Response - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MjI0ODQ0NzMsImV4cCI6MTUyMjU3MDg3M30.Yx5jXcXEb5fmXKl02WyHLaq4ARTQKY0l9lEBbFG7vlw","user":{"id":2,"email":"mayur.patil1211@gmail.com","first_name":null}}
+
+
+###########################################################
+6.Login with Social App
+	API -http://18.217.244.65:8080/api/social-login
+	Method-POST
+	Request - 
+		{
+			"email":"mayur.patil1211@gmail.com",
+			"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heXVyLnBhdGlsMTIxMUBnbWFpbC5jb20iLCJpYXQiOjE1MjI4MjQ5MjcsImV4cCI6MTUyMjkxMTMyN30.5Y59m8bb1waZ7Am_mqRqOQrIZuXbB1AvaZYDKLj-1Xs"
+		}
+	Response - 
+	{
+	    "user": {
+		"id": 2,
+		"email": "mayur.patil1211@gmail.com"
+	    },
+		    		     		"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heXVyLnBhdGlsMTIxMUBnbWFpbC5jb20iLCJpYXQiOjE1MjI4MjQ5MjcsImV4cCI6MTUyMjkxMTMyN30.
+	5Y59m8bb1waZ7Am_mqRqOQrIZuXbB1AvaZYDKLj-1Xs"
+	}
+
+#############################################################
+7. Upload Image
+	API - /upload-image
+	Method- POST
+	Request - 
+		{
+		'title':'Motivation',
+		'imgFile': FILE
+		}
+	Response - 
+		{success:true, message:'Image was uploaded', message_code:1101}
+
+###########################################################
+8. Upload Video
+	API - /upload-video
+	Method- POST
+	Request - 
+		{
+		'title':'Motivation',
+		'videoFile': FILE
+		}
+	Response - 
+		{success:true, message:'Video was uploaded', message_code:1101}
+
+###########################################################
+9. Upload Video
+	API - /upload-song
+	Method- POST
+	Request - 
+		{
+		'title':'Motivation',
+		'songFile': FILE
+		}
+	Response - 
+		{success:true, message:'Song was uploaded', message_code:1101}
+
+################################################################
+10. Add Song Url
+	API - /api/song
+	Method - POST
+	Request - 
+		{
+			"title":"Motivation",
+			"song":"http://www.songscloud.com/never-give-up"
+		}
+	Response - 
+		{
+		    "message": "Song Added Successfully",
+		    "message_code": 1000
+		}
+##################################################################
+11. Add Video Url
+	API - /api/video
+	Method - POST
+	Request - 
+		{
+			"title":"Motivation",
+			"video":"http://www.youtube.com/never-give-up"
+		}
+	Response - 
+		{
+		    "message": "video Added Successfully",
+		    "message_code": 1000
+		}
+###################################################################
+12. Add Image Url
+	API - /api/image
+	Method - POST
+	Request - 
+		{
+			"title":"Motivation",
+			"image":"http://www.google.com/never-give-up"
+		}
+	Response - 
+		{
+		    "message": "image Added Successfully",
+		    "message_code": 1000
+		}
+###################################################################
+13. Add Thought Url
+	API - /api/thought
+	Method - POST
+	Request - 
+		{
+			"title":"Motivation",
+			"thought":"never-give-up",
+			"author":"someone" (!imp)
+		}
+	Response - 
+		{
+		    "message": "Thought Added Successfully",
+		    "message_code": 1000
+		}

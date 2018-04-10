@@ -37,4 +37,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// m.User.hasMany(m.SongOfTheDay, {through: 'users_songs'});
+// m.SongOfTheDay.hasMany(m.User, {through: 'users_songs'});
+
 module.exports = db;
