@@ -17,5 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     }
 
 });
+
+  Image.associate = function(models){
+    Image.belongsToMany(models.User, {through:'users_images'})
+  }
+  
   return Image;
 };

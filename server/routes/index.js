@@ -18,7 +18,19 @@ module.exports = (app)=>{
 
 	app.post('/api/fav-song/:userId', fileController.addfavSong);
 	app.get('/api/fav-song/:userId', fileController.getFavSong);
-	app.delete('/api/fav-song/:userId', fileController.removeFavSong)
+	app.delete('/api/fav-song/:userId', fileController.removeFavSong);
+
+	app.post('/api/fav-video/:userId', fileController.addfavVideo);
+	app.get('/api/fav-video/:userId', fileController.getFavVideo);
+	app.delete('/api/fav-video/:userId', fileController.removeFavVideo);
+
+	app.post('/api/fav-image/:userId', fileController.addFavImage);
+	app.get('/api/fav-image/:userId', fileController.getFavImage);
+
+	app.post('/api/fav-thought/:userId', fileController.addfavThought);
+	app.get('/api/fav-thought/:userId', fileController.getFavThought);
+	app.delete('/api/fav-thought/:userId', fileController.removeFavThought);
+
 	};
 
 

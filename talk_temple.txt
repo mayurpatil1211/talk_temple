@@ -162,3 +162,59 @@
 		    "message": "Thought Added Successfully",
 		    "message_code": 1000
 		}
+
+###################################################################
+
+
+14. Add Favorite Song
+	API - /api/fav-song/userId
+	Method-POST
+	Request - 
+		{
+			"song":2
+		}
+	Response - 
+		{
+		    "message": "Song Added to the Favorite",
+		    "message_code": 1201
+		}
+
+###############################################################
+15. Add Favorite Video
+	API - /api/fav-video/userId
+	Method - POST
+	Request - 	
+		{
+			"video":1
+		}
+	Response - 
+		{
+		    "message": "Video Added to the Favorite",
+		    "message_code": 1201
+		}
+####################################################################
+16. Add Favorite Image
+	API - /api/fav-image/userId
+	Method - POST
+	Request - 	
+		{
+			"image":1
+		}
+	Response - 
+		{
+		    "message": "Image Added to the Favorite",
+		    "message_code": 1201
+		}
+#################################################################
+17. Add Favorite Thought
+	API - /api/fav-thought/userId
+	Method - POST
+	Request - 	
+		{
+			"thought":1
+		}
+	Response - 
+		{
+		    "message": "Thought Added to the Favorite",
+		    "message_code": 1201
+		}

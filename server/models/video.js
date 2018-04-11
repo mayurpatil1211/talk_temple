@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
+  Video.associate = function(models){
+    Video.belongsToMany(models.User, {through:'users_videos'})
+  }
+
   return Video;
 };
 

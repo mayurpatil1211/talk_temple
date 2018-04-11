@@ -30,6 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     });
     User.associate = function(models) {
         User.belongsToMany(models.Song, { through: 'users_songs'});
+        User.belongsToMany(models.Video, { through: 'users_videos'});
+        User.belongsToMany(models.Image, { through: 'users_images'});
+        User.belongsToMany(models.Thought, { through: 'users_thoughts'});
     };
 
     User.generateHash = function(password) {
