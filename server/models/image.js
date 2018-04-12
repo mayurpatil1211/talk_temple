@@ -19,8 +19,9 @@ module.exports = (sequelize, DataTypes) => {
 });
 
   Image.associate = function(models){
-    Image.belongsToMany(models.User, {through:'users_images'})
+    Image.belongsToMany(models.User, {through:'users_images', onDelete: 'cascade',hooks: true})
   }
-  
+
   return Image;
 };
+

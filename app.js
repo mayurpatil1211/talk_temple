@@ -4,6 +4,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 var path = require('path')
 const app = express();
+var router = express.Router()
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,16 +24,12 @@ var allowCrossDomain = function(req, res, next) {
 }
 
 app.use(allowCrossDomain);
-// var session      = require('express-session');
 
-// const port = parseInt(process.env.PORT, 10) || 8080;
-// app.set('port', port);
-
-// const server = http.createServer(app);
 
 require('./server/config/passport')(app,passport);
 
 // Require our routes into the application.
+
 require('./server/routes')(app);
 
 require('./server/controllers/upload_files')(app);
@@ -43,7 +40,7 @@ require('./server/controllers/upload_files')(app);
 
 app.get('*', function(req, res){
 	// res.sendFile(path.join(__dirname+ '/public/app/views/index.html'))
-	res.send({message:'Not Found'}).status(404)
+	res.send({message:'API Not Found'}).status(404)
 })
 
 

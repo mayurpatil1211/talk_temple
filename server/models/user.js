@@ -29,10 +29,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
     User.associate = function(models) {
-        User.belongsToMany(models.Song, { through: 'users_songs'});
-        User.belongsToMany(models.Video, { through: 'users_videos'});
-        User.belongsToMany(models.Image, { through: 'users_images'});
-        User.belongsToMany(models.Thought, { through: 'users_thoughts'});
+        User.belongsToMany(models.Song, { through: 'users_songs', onDelete: 'cascade',hooks: true});
+        User.belongsToMany(models.Video, { through: 'users_videos', onDelete: 'cascade',hooks: true});
+        User.belongsToMany(models.Image, { through: 'users_images', onDelete: 'cascade',hooks: true});
+        User.belongsToMany(models.Thought, { through: 'users_thoughts', onDelete: 'cascade',hooks: true});
+        User.hasMany(models.Question, {foreignKey:{name:'userId', allowNull:false}, onDelete: 'cascade',hooks: true});
     };
 
     User.generateHash = function(password) {
@@ -44,6 +45,19 @@ module.exports = (sequelize, DataTypes) => {
     }
     return User;
 };
+
+// User.hasMany(Picture, {
+//   foreignKey: {
+//     name: 'uid',
+//     allowNull: false
+//   }
+// })
+
+// Orders.hasMany(models.lines, { 
+//   onDelete: 'cascade',
+//   hooks: true, 
+// });
+
 
 // order.associate = function (models) {
 //   order.belongsToMany(models.product, { through: 'product_order', as: 'product' });

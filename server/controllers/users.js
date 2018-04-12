@@ -154,6 +154,13 @@ module.exports = {
                 message_code: 1003
             })
         }
+    },
+
+
+    //---------------------------logout-------------------
+    logout(req, res){
+        console.log('Logging Out')
+        res.status(200).json({message:'Logged Out Successfully'})
     }
 
 

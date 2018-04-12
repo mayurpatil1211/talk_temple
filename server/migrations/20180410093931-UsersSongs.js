@@ -15,7 +15,9 @@ module.exports = {
               model: 'Users',
               key : 'id'
             },
-            allowNull:false
+            allowNull:false,
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
           },
           songId:{
             type: Sequelize.INTEGER,
@@ -23,7 +25,9 @@ module.exports = {
               model:'Songs',
               key: 'id'
             },
-            allowNull:false
+            allowNull:false,
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
           },
           createdAt: Sequelize.DATE,
           updatedAt: Sequelize.DATE,

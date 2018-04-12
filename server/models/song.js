@@ -19,11 +19,12 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Song.associate = function(models){
-    Song.belongsToMany(models.User, {through:'users_songs'})
+    Song.belongsToMany(models.User, {through:'users_songs', onDelete: 'cascade',hooks: true})
   }
 
   return Song;
 };
+
 
 
 // order.associate = function (models) {

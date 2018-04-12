@@ -33,6 +33,13 @@
 		        "email": "mayur.patil1211@gmail.com"
 		    }
 		}
+#######################################################
+2.1 Logout
+	API - /api/logout
+	Response - 
+		{
+		    "message": "Logged Out Successfully"
+		}
 ##########################################################
 3. Login with facebook(Web)
 	API - http://18.217.244.65:8080/auth/facebook
@@ -217,4 +224,105 @@
 		{
 		    "message": "Thought Added to the Favorite",
 		    "message_code": 1201
+		}
+################################################################
+18. Get List of Songs
+	API - /api/song
+	Method - GET
+	Response - 	
+		{
+		    "songs": [
+		        {
+		            "id": 1,
+		            "title": "Motivation",
+		            "song": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1101,
+		    "message": "List of Songs"
+		}
+##################################################################
+19. Get List of Images
+	API - /api/image
+	method - GET
+	Response - 
+		{
+		    "message": "Image List",
+		    "image": [
+		        {
+		            "id": 2,
+		            "image": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE",
+		            "title": "Motivation"
+		        }
+		    ],
+		    "message_code": 1101
+		}
+######################################################################
+20. Get List of video
+	API - /api/video
+	Method- GET
+	Response - 
+		{
+		    "video": [
+		        {
+		            "id": 2,
+		            "title": "Motivation2",
+		            "video": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message": "Video List",
+		    "message_code": 1101
+		}
+#######################################################################
+21. Get List Of Thought
+	API - /api/thought
+	Method - GET
+	Response - 
+		{
+		    "message": "Thought List",
+		    "thought": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "thought": "Never Give up",
+		            "author": "Someone"
+		        }
+		    ],
+		    "message_code": 1101
+		}	
+#######################################################################
+22. Delete Image
+	API - /api/image/imageId
+	Method -Delete
+	Response-
+		{
+			message:'Image Deleted Successfully', 
+			message_code:1104
+		}
+######################################################################
+23. Delete Video
+	API - /api/video/videoId
+	Method -Delete
+	Response-
+		{
+			message:'Video Deleted Successfully', 
+			message_code:1104
+		}
+#####################################################################
+24. Delete Song
+	API - /api/song/songId
+	Method -Delete
+	Response-
+		{
+			message:'Song Deleted Successfully', 
+			message_code:1104
+		}
+#####################################################################
+25. Delete Thought
+	API - /api/thought/thoughtId
+	Method -Delete
+	Response-
+		{
+			message:'Thought Deleted Successfully', 
+			message_code:1104
 		}

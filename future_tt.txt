@@ -1,0 +1,146 @@
+1. Get Fav Songs
+	API - /api/fav-song/userId
+	method - GET
+	Response - 
+		{
+		    "songs": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "song": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+
+#####################################
+2. Get Fav Video
+	API - /api/fav-video/userId
+	method - GET
+	Response - 
+		{
+		    "video": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "video": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+#######################################
+3. Get Fav Video
+	API - /api/fav-image/userId
+	method - GET
+	Response - 
+		{
+		    "images": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "image": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+##########################################
+4. Get Fav Video
+	API - /api/fav-thought/userId
+	method - GET
+	Response - 
+		{
+		    "thought": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "thought": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+######################################################
+5. Add Question
+	API - /api/queation
+	Method - POST
+	Request - 
+		{
+			"question":"How are you now?",
+			"userId":1
+		}
+	Response - 
+		{
+		    "message": "Question created Successfully",
+		    "message_code": 1000
+		}
+#######################################################
+6. Update Question
+	API - /api/question
+	Method - PUT
+	Request -
+		{
+			"id":1,
+			"question":"How are you now?",
+			"userId":1,
+			"answer":""(null if Not answerd)/ return answer
+		}
+	Response - 
+		{
+		    "message": "Question Updated Successfully",
+		    "message_code": 1005
+		}
+#######################################################333
+7. Get question(all)
+	API - /api/question
+	Method - GET
+	Response - 
+		{
+		    "questions": [
+		        {
+		            "id": 1,
+		            "question": "How are you now?",
+		            "answer": "",
+		            "User": {
+		                "id": 1,
+		                "first_name": null,
+		                "last_name": null,
+		                "email": "admin@gmail.com"
+		            }
+		        }
+		    ],
+		    "message_code": 1101,
+		    "message": "Question List"
+		}
+8. Delete Question
+	API - /api/questions
+	Method - Delete
+	Request - 
+		{
+			"id":1
+		}
+	Response - 
+		{
+		    "message": "Question Deleted Successfully",
+		    "message_code": 1104
+		}
+###########################################################
+8. Get Questions of particular User
+	API - /api/users/questions/:userId
+	Method - GET
+	Response - 
+		{
+		    "message": "List of questions",
+		    "message_code": 1101,
+		    "questions": [
+		        {
+		            "id": 1,
+		            "question": "How are you now?",
+		            "answer": ""
+		        },
+		        {
+		            "id": 2,
+		            "question": "How are you now?",
+		            "answer": null
+		        }
+		    ]
+		}
+###########################################################

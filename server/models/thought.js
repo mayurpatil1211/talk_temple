@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Thought.associate = function(models) {
-    Thought.belongsToMany(models.User, {through:'users_thoughts'});
+    Thought.belongsToMany(models.User, {through:'users_thoughts', onDelete: 'cascade',hooks: true});
   }
 
   return Thought;

@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Video.associate = function(models){
-    Video.belongsToMany(models.User, {through:'users_videos'})
+    Video.belongsToMany(models.User, {through:'users_videos', onDelete: 'cascade',hooks: true})
   }
 
   return Video;

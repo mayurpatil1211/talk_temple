@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => 
-     queryInterface.createTable('users_videos',
+     queryInterface.createTable('users_songs',
         {
           id:{
             type:Sequelize.INTEGER,
@@ -16,23 +16,21 @@ module.exports = {
               key : 'id'
             },
             allowNull:false,
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            onDelete: 'CASCADE'
           },
-          videoId:{
+          songId:{
             type: Sequelize.INTEGER,
             references:{
-              model:'Videos',
+              model:'Songs',
               key: 'id'
             },
             allowNull:false,
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            onDelete: 'CASCADE'
           },
           createdAt: Sequelize.DATE,
           updatedAt: Sequelize.DATE,
         }),
   down: (queryInterface, Sequelize) => 
-    queryInterface.dropTable('users_videos')
+    queryInterface.dropTable('users_songs')
 
 };

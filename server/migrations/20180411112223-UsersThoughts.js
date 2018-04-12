@@ -15,7 +15,9 @@ module.exports = {
               model: 'Users',
               key : 'id'
             },
-            allowNull:false
+            allowNull:false,
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
           },
           thoughtId:{
             type: Sequelize.INTEGER,
@@ -23,7 +25,9 @@ module.exports = {
               model:'Thoughts',
               key: 'id'
             },
-            allowNull:false
+            allowNull:false,
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
           },
           createdAt: Sequelize.DATE,
           updatedAt: Sequelize.DATE,

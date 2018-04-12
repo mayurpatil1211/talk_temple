@@ -15,9 +15,7 @@ module.exports = {
               model: 'Users',
               key : 'id'
             },
-            allowNull:false,
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            allowNull:false
           },
           videoId:{
             type: Sequelize.INTEGER,
@@ -25,9 +23,7 @@ module.exports = {
               model:'Videos',
               key: 'id'
             },
-            allowNull:false,
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            allowNull:false
           },
           createdAt: Sequelize.DATE,
           updatedAt: Sequelize.DATE,
