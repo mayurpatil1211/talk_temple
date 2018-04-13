@@ -45,6 +45,46 @@ module.exports = {
             }))
     },
 
+    //-------------------------------Update Song-------------------------
+    updateSong(req, res){
+        if(req.body.title != '' && req.body.title != null && req.body.song != '' && req.body.song != null && req.body.id){
+            return Song.findOne({
+                where:{id:req.body.id},
+            }).then(function(song_obj){
+                if(song_obj){
+                    song_obj.updateAttributes({
+                    song: req.body.song,
+                    title: req.body.title
+                }).then(updated_song=>res.status(200).json({
+                        message: 'Song Updated Successfully',
+                        message_code: 1005
+                    })).catch(err=>res.status(400).json({
+                        message: 'Error during updating Song',
+                        message_code: 1006,
+                        err: err
+                    }))
+                }else{
+                    return res.status(400).json({
+                            message: 'Invalid Song',
+                            message_code: 1007
+                        })
+                }
+                
+            }).catch(err => res.status(400).json({
+                    message: 'Error during updating Song',
+                    message_code: 1006,
+                    err: err
+                }))
+        }else {
+            return res.status(400).send({
+                message: "Null shall\'t pass, check the data you are sending",
+                message_code: 1003
+            })
+        }
+
+    },
+
+
 
     //-------------------------------Delete Songs-------------------------
     deleteSong(req, res) {
@@ -119,6 +159,46 @@ module.exports = {
             }))
     },
 
+    //-------------------------------Update Song-------------------------
+    updateVideo(req, res){
+        if(req.body.title != '' && req.body.title != null && req.body.video != '' && req.body.video != null && req.body.id){
+            return Video.findOne({
+                where:{id:req.body.id},
+            }).then(function(video_obj){
+                if(video_obj){
+                    video_obj.updateAttributes({
+                    video: req.body.video,
+                    title: req.body.title
+                }).then(updated_video=>res.status(200).json({
+                        message: 'video Updated Successfully',
+                        message_code: 1005
+                    })).catch(err=>res.status(400).json({
+                        message: 'Error during updating video',
+                        message_code: 1006,
+                        err: err
+                    }))
+                }else{
+                    return res.status(400).json({
+                            message: 'Invalid video',
+                            message_code: 1007
+                        })
+                }
+                
+            }).catch(err => res.status(400).json({
+                    message: 'Error during updating video',
+                    message_code: 1006,
+                    err: err
+                }))
+        }else {
+            return res.status(400).send({
+                message: "Null shall\'t pass, check the data you are sending",
+                message_code: 1003
+            })
+        }
+
+    },
+
+
     //--------------------------Add image Url--------------------------------
     image(req, res) {
         console.log(req.body)
@@ -174,6 +254,47 @@ module.exports = {
                 err: err
             }))
     },
+
+
+    //-------------------------------Update Song-------------------------
+    updateImage(req, res){
+        if(req.body.title != '' && req.body.title != null && req.body.image != '' && req.body.image != null && req.body.id){
+            return Image.findOne({
+                where:{id:req.body.id},
+            }).then(function(image_obj){
+                if(image_obj){
+                    image_obj.updateAttributes({
+                    image: req.body.image,
+                    title: req.body.title
+                }).then(updated_image=>res.status(200).json({
+                        message: 'Image Updated Successfully',
+                        message_code: 1005
+                    })).catch(err=>res.status(400).json({
+                        message: 'Error during updating Image',
+                        message_code: 1006,
+                        err: err
+                    }))
+                }else{
+                    return res.status(400).json({
+                            message: 'Invalid Image',
+                            message_code: 1007
+                        })
+                }
+                
+            }).catch(err => res.status(400).json({
+                    message: 'Error during updating Image',
+                    message_code: 1006,
+                    err: err
+                }))
+        }else {
+            return res.status(400).send({
+                message: "Null shall\'t pass, check the data you are sending",
+                message_code: 1003
+            })
+        }
+
+    },
+
 
     //--------------------------Add Thought--------------------------------
     thought(req, res) {
@@ -231,7 +352,47 @@ module.exports = {
                 message_code: 1103,
                 err: err
             }))
-    }
+    },
+
+    //--------------------------Update Thought--------------------------------
+    updateThought(req, res){
+        if(req.body.title != '' && req.body.title != null && req.body.thought != '' && req.body.thought != null && req.body.id){
+            return Thought.findOne({
+                where:{id:req.body.id},
+            }).then(function(thought_obj){
+                if(thought_obj){
+                    thought_obj.updateAttributes({
+                    thought: req.body.thought,
+                    title: req.body.title,
+                    author:req.body.author
+                }).then(thought_image=>res.status(200).json({
+                        message: 'thought Updated Successfully',
+                        message_code: 1005
+                    })).catch(err=>res.status(400).json({
+                        message: 'Error during updating thought',
+                        message_code: 1006,
+                        err: err
+                    }))
+                }else{
+                    return res.status(400).json({
+                            message: 'Invalid thought',
+                            message_code: 1007
+                        })
+                }
+                
+            }).catch(err => res.status(400).json({
+                    message: 'Error during updating thought',
+                    message_code: 1006,
+                    err: err
+                }))
+        }else {
+            return res.status(400).send({
+                message: "Null shall\'t pass, check the data you are sending",
+                message_code: 1003
+            })
+        }
+
+    },
 
 
 }

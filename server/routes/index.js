@@ -42,18 +42,22 @@ module.exports = (app)=>{
 	app.delete('/api/video/:videoId', fileController.deleteVideo);
 	app.get('/api/video', fileController.getVideo);
 	app.post('/api/video', fileController.video);
+	app.put('/api/video', fileController.updateVideo);
 
 	app.post('/api/image', fileController.image);
 	app.get('/api/image', fileController.getImage);
+	app.put('/api/image', fileController.updateImage);
 	app.delete('/api/image/:imageId', fileController.deleteImage);
 
 	app.post('/api/thought', fileController.thought);
+	app.put('/api/thought', fileController.updateThought);
 	app.get('/api/thought', fileController.getThought);
 	app.delete('/api/thought/:thoughtId', fileController.deleteThought);
 
 	app.post('/api/song', fileController.song);
 	app.get('/api/song', fileController.getSongs);
 	app.delete('/api/song/:songId', fileController.deleteSong);
+	app.put('/api/song', fileController.updateSong);
 
 	//Favourite
 	app.post('/api/fav-song/:userId', favouriteController.addfavSong);
@@ -63,6 +67,7 @@ module.exports = (app)=>{
 	app.post('/api/fav-video/:userId', favouriteController.addfavVideo);
 	app.get('/api/fav-video/:userId', favouriteController.getFavVideo);
 	app.delete('/api/fav-video/:userId', favouriteController.removeFavVideo);
+
 
 	app.post('/api/fav-image/:userId', favouriteController.addFavImage);
 	app.get('/api/fav-image/:userId', favouriteController.getFavImage);

@@ -110,6 +110,7 @@
 		    "message_code": 1101,
 		    "message": "Question List"
 		}
+#########################################################
 8. Delete Question
 	API - /api/questions
 	Method - Delete
@@ -144,3 +145,63 @@
 		    ]
 		}
 ###########################################################
+9. Update Song
+	API - /api/song
+	Method - PUT
+	Resquest - 
+		{
+			"id":2,
+			"title":"Motivation",
+			"song":"https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		}
+	Response - 
+		{
+		    "message": "Song Updated Successfully",
+		    "message_code": 1005
+		}
+###############################################################
+10. Update Video
+	API - /api/video
+	Method - PUT
+	Request - 
+		{
+			"id":2,
+			"title":"Motivation2",
+			"video":"https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		}
+	Response - 
+		{
+		    "message": "video Updated Successfully",
+		    "message_code": 1005
+		}
+###############################################################
+11. Update Image
+	API - /api/image
+	Method - PUT
+	Request - 
+		{
+			"id":2,
+			"title":"Motivation1",
+			"image":"https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		}
+	Response - 
+		{
+		    "message": "image Updated Successfully",
+		    "message_code": 1005
+		}
+###############################################################
+12. Update Thought
+	API - /api/thought
+	Method - PUT
+	Request - 
+		{
+			"id":2,
+			"title":"Motivation",
+			"thought":"Never Give up",
+			"author": "Someone"
+		}
+	Response - 
+		{
+		    "message": "thought Updated Successfully",
+		    "message_code": 1005
+		}
