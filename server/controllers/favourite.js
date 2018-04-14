@@ -341,5 +341,69 @@ module.exports = {
         }
     },
 
+    //-------------------------------Get Fav
+    getFavourite(req, res) {
+        return User.findOne({
+                where: {
+                    id: req.params.userId
+                },
+                include: [{
+                    model: Thought,
+                    attributes: {
+                        include: ['id', 'thought', 'title', 'author'],
+                        exclude: ['updatedAt', 'createdAt', 'users_thoughts']
+                    },
+                    through: {
+                        attributes: []
+                    }
+                },
+
+                {
+                model: Image,
+                attributes: {
+                    include: ['id', 'image', 'title'],
+                    exclude: ['updatedAt', 'createdAt', 'users_images']
+                },
+                through: {
+                    attributes: []
+                }
+                }, 
+
+                {
+                    model: Video,
+                    attributes: {
+                        include: ['id', 'video', 'title'],
+                        exclude: ['updatedAt', 'createdAt', 'users_videos']
+                    },
+                    through: {
+                        attributes: []
+                    }
+                },
+
+                {
+                model: Song,
+                attributes: {
+                    include: ['id', 'song', 'title'],
+                    exclude: ['updatedAt', 'createdAt', 'users_songs']
+                },
+                through: {
+                    attributes: []
+                }
+                }
+
+                ]
+            }).then(user => res.status(200).json({
+                thoughts: user.Thoughts,
+                songs: user.Songs,
+                videos: user.Videos,
+                images: user.Images,
+                message_code: 1204
+            }))
+            .catch(err => res.status(400).json({
+                message_code: 1203,
+                message: "cannot get Favorite Thoughts, Please try again letter"
+            }))
+    },
+
 
 }

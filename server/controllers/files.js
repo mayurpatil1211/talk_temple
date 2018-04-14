@@ -394,5 +394,52 @@ module.exports = {
 
     },
 
+    //-------------------------------Get All----------------------------
+    getAll(req, res){
+        return Thought.findAll({
+                attributes: ['id', 'title', 'thought', 'author']
+            }).then(function(thought){
+              Song.findAll({
+                    attributes: ['id', 'title', 'song']
+                }).then(function(songs){
+
+                    Video.findAll({
+                        attributes: ['id', 'title', 'video']
+                    }).then(function(video){
+
+                        Image.findAll({
+                            attributes: ['id', 'image', 'title']
+                        }).then(image => res.status(200).json({
+                            message: 'List',
+                            image: image,
+                            thought:thought,
+                            songs: songs,
+                            video:video,
+                            message_code: 1101
+                        }))
+                        .catch(err => res.status(400).json({
+                            message: 'Error During Getting List',
+                            message_code: 1102
+                        }))
+                    }).catch(err =>
+                        res.status(200).json({
+                            message: 'Error During Getting List',
+                            message_code: 1102
+                        }))
+                }).catch(err =>
+                    res.status(400).json({
+                        message: 'Error During Getting List',
+                        message_code: 1102
+                    }))
+            })
+            .catch(err => res.status(400).json({
+                message: 'Error During Getting List, Please try again',
+                message_code: 1102,
+                err: err
+            }))
+            
+    }
+
+
 
 }

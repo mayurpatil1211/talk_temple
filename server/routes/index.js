@@ -59,6 +59,8 @@ module.exports = (app)=>{
 	app.delete('/api/song/:songId', fileController.deleteSong);
 	app.put('/api/song', fileController.updateSong);
 
+	app.get('/api/files', fileController.getAll);
+
 	//Favourite
 	app.post('/api/fav-song/:userId', favouriteController.addfavSong);
 	app.get('/api/fav-song/:userId', favouriteController.getFavSong);
@@ -76,6 +78,8 @@ module.exports = (app)=>{
 	app.post('/api/fav-thought/:userId', favouriteController.addfavThought);
 	app.get('/api/fav-thought/:userId', favouriteController.getFavThought);
 	app.delete('/api/fav-thought/:userId', favouriteController.removeFavThought);
+
+	app.get('/api/favourite/:userId', favouriteController.getFavourite);
 
 
 	//Question

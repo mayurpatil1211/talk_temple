@@ -326,3 +326,287 @@
 			message:'Thought Deleted Successfully', 
 			message_code:1104
 		}
+#############################################
+26. Get Fav Songs
+	API - /api/fav-song/userId
+	method - GET
+	Response - 
+		{
+		    "songs": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "song": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+
+#####################################
+27. Get Fav Video
+	API - /api/fav-video/userId
+	method - GET
+	Response - 
+		{
+		    "video": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "video": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+#######################################
+28. Get Fav Video
+	API - /api/fav-image/userId
+	method - GET
+	Response - 
+		{
+		    "images": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "image": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+##########################################
+29. Get Fav Video
+	API - /api/fav-thought/userId
+	method - GET
+	Response - 
+		{
+		    "thought": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "thought": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
+######################################################
+30. Add Question
+	API - /api/queation
+	Method - POST
+	Request - 
+		{
+			"question":"How are you now?",
+			"userId":1
+		}
+	Response - 
+		{
+		    "message": "Question created Successfully",
+		    "message_code": 1000
+		}
+#######################################################
+31. Update Question
+	API - /api/question
+	Method - PUT
+	Request -
+		{
+			"id":1,
+			"question":"How are you now?",
+			"userId":1,
+			"answer":""(null if Not answerd)/ return answer
+		}
+	Response - 
+		{
+		    "message": "Question Updated Successfully",
+		    "message_code": 1005
+		}
+#######################################################333
+32. Get question(all)
+	API - /api/question
+	Method - GET
+	Response - 
+		{
+		    "questions": [
+		        {
+		            "id": 1,
+		            "question": "How are you now?",
+		            "answer": "",
+		            "User": {
+		                "id": 1,
+		                "first_name": null,
+		                "last_name": null,
+		                "email": "admin@gmail.com"
+		            }
+		        }
+		    ],
+		    "message_code": 1101,
+		    "message": "Question List"
+		}
+#########################################################
+33. Delete Question
+	API - /api/questions
+	Method - Delete
+	Request - 
+		{
+			"id":1
+		}
+	Response - 
+		{
+		    "message": "Question Deleted Successfully",
+		    "message_code": 1104
+		}
+###########################################################
+34. Get Questions of particular User
+	API - /api/users/questions/:userId
+	Method - GET
+	Response - 
+		{
+		    "message": "List of questions",
+		    "message_code": 1101,
+		    "questions": [
+		        {
+		            "id": 1,
+		            "question": "How are you now?",
+		            "answer": ""
+		        },
+		        {
+		            "id": 2,
+		            "question": "How are you now?",
+		            "answer": null
+		        }
+		    ]
+		}
+###########################################################
+35. Update Song
+	API - /api/song
+	Method - PUT
+	Resquest - 
+		{
+			"id":2,
+			"title":"Motivation",
+			"song":"https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		}
+	Response - 
+		{
+		    "message": "Song Updated Successfully",
+		    "message_code": 1005
+		}
+###############################################################
+36. Update Video
+	API - /api/video
+	Method - PUT
+	Request - 
+		{
+			"id":2,
+			"title":"Motivation2",
+			"video":"https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		}
+	Response - 
+		{
+		    "message": "video Updated Successfully",
+		    "message_code": 1005
+		}
+###############################################################
+37. Update Image
+	API - /api/image
+	Method - PUT
+	Request - 
+		{
+			"id":2,
+			"title":"Motivation1",
+			"image":"https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		}
+	Response - 
+		{
+		    "message": "image Updated Successfully",
+		    "message_code": 1005
+		}
+###############################################################
+38. Update Thought
+	API - /api/thought
+	Method - PUT
+	Request - 
+		{
+			"id":2,
+			"title":"Motivation",
+			"thought":"Never Give up",
+			"author": "Someone"
+		}
+	Response - 
+		{
+		    "message": "thought Updated Successfully",
+		    "message_code": 1005
+		}
+###############################################################
+39. Get all files
+	API - /api/files
+	Method - GET
+	Response - 
+		{
+	    "message": "List",
+	    "image": [
+	        {
+	            "id": 2,
+	            "image": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE",
+	            "title": "Motivation1"
+	        }
+	    ],
+	    "thought": [
+	        {
+	            "id": 2,
+	            "title": "Motivation",
+	            "thought": "Never Give up",
+	            "author": "Some"
+	        },
+	        {
+	            "id": 3,
+	            "title": "Motivation",
+	            "thought": "Never Give up again",
+	            "author": "Someone"
+	        }
+	    ],
+	    "songs": [
+	        {
+	            "id": 2,
+	            "title": "Motivation",
+	            "song": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+	        }
+	    ],
+	    "video": [
+	        {
+	            "id": 2,
+	            "title": "Motivation2",
+	            "video": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+	        }
+	    ],
+	    "message_code": 1101
+		}
+
+#################################################################
+40. Get favorite
+	API-/api/favourite/:userId
+	Method - GET
+	Response - 
+		{
+		    "thoughts": [
+		        {
+		            "id": 2,
+		            "title": "Motivation",
+		            "thought": "Never Give up",
+		            "author": "Some"
+		        }
+		    ],
+		    "songs": [],
+		    "videos": [
+		        {
+		            "id": 2,
+		            "title": "Motivation2",
+		            "video": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "images": [
+		        {
+		            "id": 2,
+		            "title": "Motivation1",
+		            "image": "https://www.youtube.com/watch?v=13z2kF6TiCc&index=12&list=RDu7AlC_P8CvE"
+		        }
+		    ],
+		    "message_code": 1204
+		}
