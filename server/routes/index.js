@@ -60,6 +60,7 @@ module.exports = (app)=>{
 	app.put('/api/song', fileController.updateSong);
 
 	app.get('/api/files', fileController.getAll);
+	// app.get('/api/latest', fileController.getTodays);
 
 	//Favourite
 	app.post('/api/fav-song/:userId', favouriteController.addfavSong);
