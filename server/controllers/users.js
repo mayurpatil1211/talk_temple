@@ -75,12 +75,15 @@ module.exports = {
                                         email: user.email
                                     },
                                     attributes: ['id', 'email', 'first_name', 'last_name']
-                                }).then(user => res.status(200).send({
+                                }).then(function(user){
+
+                                    user.dataValues.token=token
+                                    return res.status(200).send({
                                     'user': user,
-                                    'token': token,
                                     'message': "User Logged In Successfully",
                                     'message_code': 1005
-                                }))
+                                })
+                                })
                         } else {
                             return res.status(400).send({
                                 message: "Invalid email or password",
