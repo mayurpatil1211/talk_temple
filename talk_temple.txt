@@ -404,7 +404,7 @@
 #######################################################
 31. Update Question
 	API - /api/question
-	Method - PUT
+	Method - PUTDele
 	Request -
 		{
 			"id":1,

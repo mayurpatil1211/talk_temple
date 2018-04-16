@@ -156,16 +156,16 @@ module.exports = {
                 where: {
                     id: req.params.userId
                 },
-            }).then(user => user.removeVideos(req.body.video).then(video => res.status(200)
-                .json({
-                    message: 'Video Removed From Favorite',
-                    message_code: 1205
-                }).catch(err => res.status(400).json({
-                    message: 'Video Cannot be removed from Favorite',
-                    message_code: 1206,
-                    err: err
-                }))
-            )).catch(err => res.status(400).json({
+            }).then(user => user.removeVideos(req.body.video)
+                    .then(video => res.status(200).json({
+                            message: 'Video Removed From Favorite',
+                            message_code: 1205
+                        })).catch(err => res.status(400).json({
+                            message: 'Video Cannot be removed from Favorite',
+                            message_code: 1206,
+                            err: err
+                        }))
+            ).catch(err => res.status(400).json({
                 message: "Not able to Remove Song from The Favorite, Please try again",
                 message_code: 1207,
                 err: err
