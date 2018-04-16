@@ -389,7 +389,7 @@
 		}
 ######################################################
 30. Add Question
-	API - /api/queation
+	API -/api/question
 	Method - POST
 	Request - 
 		{
@@ -472,6 +472,20 @@
 		            "answer": null
 		        }
 		    ]
+		}
+########################################################
+34.1 Answer the Question
+	API - /api/question/answer
+	Method - POST
+	Request - 
+		{
+			"id":1,
+			"answer":"fine"
+		}
+	Response - 
+		{
+		    "message": "Question Answered Successfully",
+		    "message_code": 1005
 		}
 ###########################################################
 35. Update Song
@@ -609,4 +623,58 @@
 		        }
 		    ],
 		    "message_code": 1204
+		}
+###################################################
+
+41. Remove Favorite Song
+	API - /api/fav-song/userId
+	Method-DELETE
+	Request - 
+		{
+			"song":2
+		}
+	Response - 
+		{
+		    "message": "Song Removed From Favorite",
+		    "message_code": 1205
+		}
+
+###############################################################
+42. Remove Favorite Video
+	API - /api/fav-video/userId
+	Method - Delete
+	Request - 	
+		{
+			"video":1
+		}
+	Response - 
+		{
+		    "message": "Video Removed From Favorite",
+		    "message_code": 1205
+		}
+####################################################################
+43. Remove Favorite Image
+	API - /api/fav-image/userId
+	Method - Delete
+	Request - 	
+		{
+			"image":1
+		}
+	Response - 
+		{
+		    "message": "Video Removed From Favorite",
+		    "message_code": 1205
+		}
+#################################################################
+44. Remove Favorite Thought
+	API - /api/fav-thought/userId
+	Method - Delete
+	Request - 	
+		{
+			"thought":1
+		}
+	Response - 
+		{
+		    "message": "Thought Removed From Favorite",
+		    "message_code": 1205
 		}

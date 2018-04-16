@@ -128,8 +128,47 @@ module.exports = {
 				message: 'Error during getting list of questions',
 				err: err
 			}))
-	}
+	},
 
+	answerTheQuestion(req, res){
+		if (req.body.id != '' && req.body.id != null && req.body.answer != null && req.body.answer!='') {
+			return Question.findOne({
+					where: {
+						id: req.body.id
+					}
+				})
+				.then(function (question_obj) {
+					if (question_obj) {
+						question_obj.updateAttributes({
+								answer: req.body.answer
+							}).then(updated_question => res.status(200).json({
+								message: 'Question Answered Successfully',
+								message_code: 1005
+							}))
+							.catch(err => res.status(400).json({
+								message: 'Error during saving Answer',
+								message_code: 1006,
+								err: err
+							}))
+					} else {
+						return res.status(400).json({
+							message: 'Invalid Question',
+							message_code: 1007
+						})
+					}
+				}).catch(err => res.status(400).json({
+					message: 'Error during updating question',
+					message_code: 1006,
+					err: err
+				}))
+		} else {
+			return res.status(400).send({
+				message: "Null shall\'t pass, check the data you are sending",
+				message_code: 1003
+			})
+		}
+
+	},
 
 }
 

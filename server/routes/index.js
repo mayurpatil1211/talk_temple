@@ -87,9 +87,13 @@ module.exports = (app)=>{
 	app.post('/api/question', questionController.create);
 	app.put('/api/question', questionController.update);
 	app.get('/api/question', questionController.get);
+	app.delete('/api/question', questionController.delete);
 
 	//Users Questions
 	app.get('/api/users/questions/:userId', questionController.getUsersQuestion);
+
+	//Answer the question
+	app.post('/api/question/answer', questionController.answerTheQuestion);
 
 	};
 
