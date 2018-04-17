@@ -627,8 +627,8 @@
 ###################################################
 
 41. Remove Favorite Song
-	API - /api/fav-song/userId
-	Method-DELETE
+	API - /api/fav-song/delete/:userId
+	Method-POST
 	Request - 
 		{
 			"song":2
@@ -641,8 +641,8 @@
 
 ###############################################################
 42. Remove Favorite Video
-	API - /api/fav-video/userId
-	Method - Delete
+	API - /api/fav-video/delete/:userId
+	Method - POST
 	Request - 	
 		{
 			"video":1
@@ -654,8 +654,8 @@
 		}
 ####################################################################
 43. Remove Favorite Image
-	API - /api/fav-image/userId
-	Method - Delete
+	API - /api/fav-image/delete/:userId
+	Method - POST
 	Request - 	
 		{
 			"image":1
@@ -667,8 +667,8 @@
 		}
 #################################################################
 44. Remove Favorite Thought
-	API - /api/fav-thought/userId
-	Method - Delete
+	API - /api/fav-thought/delete/:userId
+	Method - POST
 	Request - 	
 		{
 			"thought":1

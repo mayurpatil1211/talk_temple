@@ -65,20 +65,20 @@ module.exports = (app)=>{
 	//Favourite
 	app.post('/api/fav-song/:userId', favouriteController.addfavSong);
 	app.get('/api/fav-song/:userId', favouriteController.getFavSong);
-	app.delete('/api/fav-song/:userId', favouriteController.removeFavSong);
+	app.post('/api/fav-song/delete/:userId', favouriteController.removeFavSong);
 
 	app.post('/api/fav-video/:userId', favouriteController.addfavVideo);
 	app.get('/api/fav-video/:userId', favouriteController.getFavVideo);
-	app.delete('/api/fav-video/:userId', favouriteController.removeFavVideo);
+	app.post('/api/fav-video/delete/:userId', favouriteController.removeFavVideo);
 
 
 	app.post('/api/fav-image/:userId', favouriteController.addFavImage);
 	app.get('/api/fav-image/:userId', favouriteController.getFavImage);
-	app.delete('/api/fav-image/:userId', favouriteController.removeFavImage);
+	app.post('/api/fav-image/delete/:userId', favouriteController.removeFavImage);
 
 	app.post('/api/fav-thought/:userId', favouriteController.addfavThought);
 	app.get('/api/fav-thought/:userId', favouriteController.getFavThought);
-	app.delete('/api/fav-thought/:userId', favouriteController.removeFavThought);
+	app.post('/api/fav-thought/delete/:userId', favouriteController.removeFavThought);
 
 	app.get('/api/favourite/:userId', favouriteController.getFavourite);
 
