@@ -83,7 +83,7 @@ module.exports = {
 
 	get(req, res) {
 		return Question.findAll({
-				attributes: ['id','question','read', 'answered', 'createdAt'],
+				attributes: ['id','question','read', 'answer','answered', 'createdAt'],
 				include: {
 					model: User,
 					attributes: ['id', 'first_name', 'last_name', 'email']
@@ -130,7 +130,7 @@ module.exports = {
 				},
 				include: {
 					model: Question,
-					attributes: ['id', 'question', 'answer']
+					attributes: ['id', 'question','read', 'answer','answered', 'createdAt']
 				}
 			}).then(user => res.status(200).json({
 				message: 'List of questions',
