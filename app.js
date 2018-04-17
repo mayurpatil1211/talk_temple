@@ -2,6 +2,8 @@ const express = require('express');
 const logger = require('morgan');
 const http = require('http');
 const bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
+var sgTransport = require('nodemailer-sendgrid-transport');
 var path = require('path')
 const app = express();
 var router = express.Router()
@@ -53,3 +55,6 @@ const server = http.createServer(app);
 console.log('running on port ',port)
 server.listen(port);
 module.exports = app;
+
+
+// Test accounts:- Gmail: Username:stonemac25@gmail.com, Password: MacStone25

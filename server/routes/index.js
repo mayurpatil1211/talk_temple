@@ -89,11 +89,18 @@ module.exports = (app)=>{
 	app.get('/api/question', questionController.get);
 	app.delete('/api/question', questionController.delete);
 
+	//mark as a read
+	app.post('/api/question/mark-read/:questionId', questionController.markReadQuestion);
+
+	//get unread question
+	app.get('/api/question/unread', questionController.unreadQuestion);
+	app.get('/api/question/readed', questionController.getReadedQuestions);
 	//Users Questions
 	app.get('/api/users/questions/:userId', questionController.getUsersQuestion);
 
 	//Answer the question
 	app.post('/api/question/answer', questionController.answerTheQuestion);
+
 
 	};
 

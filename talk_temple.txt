@@ -678,3 +678,60 @@
 		    "message": "Thought Removed From Favorite",
 		    "message_code": 1205
 		}
+###############################################################
+45. Question mark as read
+	API -/api/question/mark-read/questionId
+	Method- POST
+	Response - 
+		{
+		    "message": "Question Marked as Read",
+		    "message_code": 1005
+		}
+###############################################################
+46. Get Unread question
+	API - /api/question/unread
+	Method - GET
+	Response - 
+		{
+		    "question": [
+		        {
+		            "id": 2,
+		            "question": "How are you now?",
+		            "read": false,
+		            "answered": false,
+		            "createdAt": "2018-04-12T10:07:19.000Z",
+		            "User": {
+		                "id": 1,
+		                "first_name": null,
+		                "last_name": null,
+		                "email": "mayur.patil1211@gmail.com"
+		            }
+		        }
+		    ],
+		    "message": "Unread questons",
+		    "message_code": 1101
+		}
+################################################################
+47. Get Readed question
+	API - /api/question/readed
+	Method - GET
+	Response - 
+		{
+		    "question": [
+		        {
+		            "id": 1,
+		            "question": "How are you now?",
+		            "read": true,
+		            "answered": false,
+		            "createdAt": "2018-04-12T07:18:38.000Z",
+		            "User": {
+		                "id": 1,
+		                "first_name": null,
+		                "last_name": null,
+		                "email": "mayur.patil1211@gmail.com"
+		            }
+		        }
+		    ],
+		    "message": "Readed questons",
+		    "message_code": 1101
+		}

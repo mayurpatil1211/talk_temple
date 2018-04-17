@@ -17,6 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     answer: {
     	type:DataTypes.STRING
     },
+    read: {
+      type:DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    answered: {
+      type:DataTypes.BOOLEAN,
+      defaultValue: false
+    },
   });
   Question.associate = function(models) {
     Question.belongsTo(models.User, {onDelete: 'cascade',hooks: true})
