@@ -8,8 +8,8 @@ var sgTransport = require('nodemailer-sendgrid-transport');
 
 var options = {
   auth: {
-    api_user: '',
-    api_key: ''
+    api_user: 'stonemac25',
+    api_key: 'MacStone25'
   }
 }
 
