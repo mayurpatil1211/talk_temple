@@ -23,7 +23,7 @@ module.exports = {
 					question: req.body.question,
 					userId: req.body.userId
 				}).then(question => res.status(200).json({
-					message: 'Question created Successfully',
+					message: 'Thank you for submitting your question, Our team will reply to your question by e-mail.',
 					message_code: 1000
 				}))
 				.catch(err => res.status(400).json({
