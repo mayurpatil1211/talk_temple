@@ -4,12 +4,11 @@ var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
 
 
-// Test accounts:- Gmail: Username:stonemac25@gmail.com, Password: MacStone25
 
 var options = {
   auth: {
-    api_user: 'stonemac25',
-    api_key: 'MacStone25'
+    api_user: '',
+    api_key: ''
   }
 }
 
