@@ -8,10 +8,11 @@ var sgTransport = require('nodemailer-sendgrid-transport');
 
 var options = {
   auth: {
-    api_user: 'stonemac25',
-    api_key: 'MacStone25'
+    api_user: '',
+    api_key: ''
   }
 }
+
 
 var client = nodemailer.createTransport(sgTransport(options));
 
