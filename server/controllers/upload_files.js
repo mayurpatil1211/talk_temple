@@ -25,7 +25,7 @@ var storage = multer.diskStorage({
   	}else{
   		console.log(req.headers.host)
   		var assigned_filename = Date.now()+ '_' +file.originalname
-  			Image.create({title: req.body.title, image:req.headers.host+'/images/'+assigned_filename})
+  			Image.create({title: req.body.title, image:req.protocol+'://'+req.headers.host+'/images/'+assigned_filename})
   			.then(function(image){
   				cb(null, assigned_filename)
   			})
