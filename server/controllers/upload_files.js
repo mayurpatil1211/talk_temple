@@ -10,7 +10,7 @@ var multer  = require('multer')
 //-------------Image
 
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function (req, file, cb, next) {
     // cb(null, path.join(__dirname+ '/public/uploads/images/'))
     cb(null, './uploads/images')
   },
@@ -22,7 +22,7 @@ var storage = multer.diskStorage({
   	}else{
   		var assigned_filename = Date.now()+ '_' +file.originalname
   			Image.create({title: req.body.title, image:'/images/'+String(assigned_filename)})
-  			.then(image=>cb(null, assigned_filename))
+  			.then(image=>next())
   			.catch(err=>cb(err))
   		cb(null, assigned_filename)
   	}
