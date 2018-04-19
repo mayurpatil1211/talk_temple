@@ -9,6 +9,8 @@ var multer  = require('multer')
 
 //-------------Image
 
+
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb, next) {
     // cb(null, path.join(__dirname+ '/public/uploads/images/'))
@@ -21,18 +23,20 @@ var storage = multer.diskStorage({
   		return cb(err);
   	}else{
   		var assigned_filename = Date.now()+ '_' +file.originalname
-  			Image.create({title: req.body.title, image:'/images/'+String(assigned_filename)})
-  			.then(image=>next())
+  			Image.create({title: req.body.title, image:'/images/'+assigned_filename})
+  			.then(function(image){
+  				cb(null, assigned_filename)
+  			})
   			.catch(err=>cb(err))
-  		cb(null, assigned_filename)
+  		// cb(null, assigned_filename)
   	}
   }
 })
 // cb(null, file.fieldname + '-' + Date.now())
- 
 var upload = multer({ 
 	storage: storage,
 	limits: {fileSize:10000000}}).single('imgFile')
+
 
 
 //-------------Video
