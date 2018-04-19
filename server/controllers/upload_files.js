@@ -89,7 +89,7 @@ var uploadSongs = multer({
 
 //------------------API
 module.exports = (app)=>{
-	app.post('/upload-image', function (req, res) {
+	app.post('/api/upload-image', function (req, res) {
 		
 	  upload(req, res, function (err) {
 	    if (err) {
@@ -114,7 +114,7 @@ module.exports = (app)=>{
 
 
 //-------------Video
-	app.post('/upload-video', function (req, res) {
+	app.post('/api/upload-video', function (req, res) {
 		
 	  uploadVideo(req, res, function (err) {
 	    if (err) {
@@ -139,7 +139,7 @@ module.exports = (app)=>{
 
 
 //-------------Songs
-app.post('/upload-song', function (req, res) {
+app.post('/api/upload-song', function (req, res) {
 		
 	  uploadSongs(req, res, function (err) {
 	    if (err) {

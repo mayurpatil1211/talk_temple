@@ -157,14 +157,14 @@ module.exports = {
                     id: req.params.userId
                 },
             }).then(user => user.removeVideos(req.body.video)
-                    .then(video => res.status(200).json({
-                            message: 'Video Removed From Favorite',
-                            message_code: 1205
-                        })).catch(err => res.status(400).json({
-                            message: 'Video Cannot be removed from Favorite',
-                            message_code: 1206,
-                            err: err
-                        }))
+                .then(video => res.status(200).json({
+                    message: 'Video Removed From Favorite',
+                    message_code: 1205
+                })).catch(err => res.status(400).json({
+                    message: 'Video Cannot be removed from Favorite',
+                    message_code: 1206,
+                    err: err
+                }))
             ).catch(err => res.status(400).json({
                 message: "Not able to Remove Song from The Favorite, Please try again",
                 message_code: 1207,
@@ -348,48 +348,48 @@ module.exports = {
                     id: req.params.userId
                 },
                 include: [{
-                    model: Thought,
-                    attributes: {
-                        include: ['id', 'thought', 'title', 'author'],
-                        exclude: ['updatedAt', 'createdAt', 'users_thoughts']
+                        model: Thought,
+                        attributes: {
+                            include: ['id', 'thought', 'title', 'author'],
+                            exclude: ['updatedAt', 'createdAt', 'users_thoughts']
+                        },
+                        through: {
+                            attributes: []
+                        }
                     },
-                    through: {
-                        attributes: []
-                    }
-                },
 
-                {
-                model: Image,
-                attributes: {
-                    include: ['id', 'image', 'title'],
-                    exclude: ['updatedAt', 'createdAt', 'users_images']
-                },
-                through: {
-                    attributes: []
-                }
-                }, 
-
-                {
-                    model: Video,
-                    attributes: {
-                        include: ['id', 'video', 'title'],
-                        exclude: ['updatedAt', 'createdAt', 'users_videos']
+                    {
+                        model: Image,
+                        attributes: {
+                            include: ['id', 'image', 'title'],
+                            exclude: ['updatedAt', 'createdAt', 'users_images']
+                        },
+                        through: {
+                            attributes: []
+                        }
                     },
-                    through: {
-                        attributes: []
-                    }
-                },
 
-                {
-                model: Song,
-                attributes: {
-                    include: ['id', 'song', 'title'],
-                    exclude: ['updatedAt', 'createdAt', 'users_songs']
-                },
-                through: {
-                    attributes: []
-                }
-                }
+                    {
+                        model: Video,
+                        attributes: {
+                            include: ['id', 'video', 'title'],
+                            exclude: ['updatedAt', 'createdAt', 'users_videos']
+                        },
+                        through: {
+                            attributes: []
+                        }
+                    },
+
+                    {
+                        model: Song,
+                        attributes: {
+                            include: ['id', 'song', 'title'],
+                            exclude: ['updatedAt', 'createdAt', 'users_songs']
+                        },
+                        through: {
+                            attributes: []
+                        }
+                    }
 
                 ]
             }).then(user => res.status(200).json({
