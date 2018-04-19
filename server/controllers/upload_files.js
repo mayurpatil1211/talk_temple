@@ -5,6 +5,7 @@ const Song = require('../models').Song;
 var secrete = 'talk_temple_codematrix'
 var path = require('path')
 var multer  = require('multer')
+// require('os')
 
 
 //-------------Image
@@ -22,8 +23,9 @@ var storage = multer.diskStorage({
   		err.code = 'filetype';
   		return cb(err);
   	}else{
+  		console.log(req.headers.host)
   		var assigned_filename = Date.now()+ '_' +file.originalname
-  			Image.create({title: req.body.title, image:'/images/'+assigned_filename})
+  			Image.create({title: req.body.title, image:req.headers.host+'/images/'+assigned_filename})
   			.then(function(image){
   				cb(null, assigned_filename)
   			})
