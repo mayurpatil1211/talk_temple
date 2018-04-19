@@ -1,7 +1,7 @@
 const User = require('../models').User;
 const Question = require('../models').Question;
-var nodemailer = require('nodemailer');
-var sgTransport = require('nodemailer-sendgrid-transport');
+// var nodemailer = require('nodemailer');
+// var sgTransport = require('nodemailer-sendgrid-transport');
 
 
 // Test accounts:- Gmail: Username:stonemac25@gmail.com, Password: MacStone25
@@ -174,13 +174,13 @@ module.exports = {
 								html: 'Hello ' + user.first_name + ',<br> We are happy to answer you question.<br><strong>Question : </strong>' + updated_question.question + '<br><strong>Answer : </strong>' + req.body.answer,
 							};
 
-							client.sendMail(email, function (err, info) {
-								if (err) {
-									console.log(err)
-								} else {
-									console.log('Message sent: ' + info);
-								}
-							})
+							// client.sendMail(email, function (err, info) {
+							// 	if (err) {
+							// 		console.log(err)
+							// 	} else {
+							// 		console.log('Message sent: ' + info);
+							// 	}
+							// })
 
 							return res.status(200).json({
 								message: 'Question Answered Successfully',
