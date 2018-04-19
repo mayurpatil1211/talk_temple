@@ -14,7 +14,7 @@ var options = {
 }
 
 
-var client = nodemailer.createTransport(sgTransport(options));
+// var client = nodemailer.createTransport(sgTransport(options));
 
 module.exports = {
 
